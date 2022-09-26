@@ -2,7 +2,7 @@ var altura = 0;
 var largura= 0;
 var vidas = 1;
 var tempo = 60;
-var pontos = 0;
+var qtd_mosquitos_mortos = 0;
 
 var criarmosquitoTempo = 1500;
 
@@ -72,28 +72,16 @@ function posicaoAleatoria(){
     mosquito.id = 'mosquito';
     mosquito.onclick = function(){
         this.remove();
-        if(this.className === '0'){
-            aumentarPontos(5);
-        }else if(this.className === '1'){
-            aumentarPontos(10);
-        }else{
-            aumentarPontos(15);
-        }
+        qtd_mosquitos_mortos++ //Adicionamos mais um valor na quantidade de mosquitos mortos.
+        document.getElementById('pontos').innerHTML = qtd_mosquitos_mortos;
     }
 
     document.body.appendChild(mosquito);
 }
 
- document.getElementById('pontos').innerHTML = pontos;
 
-function aumentarPontos(valor){
-    pontos += valor;
-    console.log(pontos);
-}
 
-function diminuirPontos(valor){
-    pontos += valor;
-}
+
 
 function tamanhoAleatorio(){
     var classe = Math.floor(Math.random() * 3);
