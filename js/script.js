@@ -1,7 +1,21 @@
 var altura = 0;
 var largura= 0;
 var vidas = 1;
-var tempo = 10;
+var tempo = 60;
+var pontos = 0;
+
+var criarmosquitoTempo = 1500;
+
+var nivel = window.location.search;
+nivel = nivel.replace('?', '')
+
+if(nivel === 'facil'){
+    criarmosquitoTempo = 1500;
+}else if(nivel === 'normal'){
+    criarmosquitoTempo = 1000;
+}else if(nivel === 'dificil'){
+    criarmosquitoTempo = 750
+}
 
 function ajustaTamanho(){
     altura  = window.innerHeight;
@@ -58,9 +72,27 @@ function posicaoAleatoria(){
     mosquito.id = 'mosquito';
     mosquito.onclick = function(){
         this.remove();
+        if(this.className === '0'){
+            aumentarPontos(5);
+        }else if(this.className === '1'){
+            aumentarPontos(10);
+        }else{
+            aumentarPontos(15);
+        }
     }
 
     document.body.appendChild(mosquito);
+}
+
+ document.getElementById('pontos').innerHTML = pontos;
+
+function aumentarPontos(valor){
+    pontos += valor;
+    console.log(pontos);
+}
+
+function diminuirPontos(valor){
+    pontos += valor;
 }
 
 function tamanhoAleatorio(){

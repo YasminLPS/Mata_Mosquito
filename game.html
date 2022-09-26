@@ -19,11 +19,19 @@
                 Tempo restante: <span id="cronometro"></span>
             </div>
         </div>
+        
+        
+        <div class="painel2">
+            <div class="pontos">
+                Score: <span id="pontos"></span>
+            </div>
+
         <script>  
+         document.getElementById('pontos').innerHTML = pontos;
          document.getElementById('cronometro').innerHTML = tempo;
          var criarmosquito = setInterval(function(){
             posicaoAleatoria(); 
-            }, 2000)
+            }, criarmosquitoTempo)
         </script>
     </body>
 </html>
