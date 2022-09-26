@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">  
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <script>
+            function iniciarJogo(){
+                var nivel = document.getElementById('nivel').value;
+                if(nivel === ''){
+                    alert('Selecione um nivel para iniciar o jogo');
+                    return false;
+                }
+            }
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mata Mosquito</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <img src="imagens/game.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <div class="mb-2">
+                            <select class="form-control" id="nivel">
+                                <option value="">--Selecione o nível--</option>
+                                <option value="facil">Facil</option>
+                                <option value="normal">Normal</option>
+                                <option value="dificil">Dificil</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-danger btn-lg" onclick="iniciarJogo()">Iniciar</button>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </body>
+</html>
