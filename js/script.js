@@ -1,5 +1,7 @@
 var altura = 0;
 var largura= 0;
+var vidas = 1;
+
 function ajustaTamanho(){
     altura  = window.innerHeight;
     largura = window.innerWidth;
@@ -10,9 +12,15 @@ ajustaTamanho();
 
 function posicaoAleatoria(){
 
-    //remover o mosquito anterior caso exista
+    //remover o mosquito anterior (caso exista)
     if(document.getElementById('mosquito')){
         document.getElementById('mosquito').remove();
+        if(vidas > 3){
+            alert('Interrompido');
+        }else{
+            document.getElementById('v' + vidas).src='imagens/coracao_vazio.png';
+            vidas++;
+        }
     }
 
     var posicaoX = Math.floor(Math.random() * largura) - 90;
@@ -34,7 +42,10 @@ function posicaoAleatoria(){
     mosquito.style.left = posicaoX + 'px';
     mosquito.style.top = posicaoY + 'px';
     mosquito.style.position = 'absolute';
-    mosquito.id = 'mosquito'
+    mosquito.id = 'mosquito';
+    mosquito.onclick = function(){
+        this.remove();
+    }
 
     document.body.appendChild(mosquito);
 }
@@ -65,4 +76,6 @@ function ladoAleatorio(){
             return 'ladoB'
 
     }
+
+
 }
